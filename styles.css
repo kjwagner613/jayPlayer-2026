@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+@font-face {
+  font-family: "Digital-7";
+  src: url("./assets/Digital-7 Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(242, 135, 219);
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid rgb(237, 181, 225);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.song-list-container {
+  width: min(92vw, 560px);
+}
+
+#song-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-container {
+  width: min(94vw, 1200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  margin: 20px auto;
+  padding: 12px;
+  border: 3px solid rgb(237, 181, 225);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.player-segment {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.joanne-image {
+  width: min(92vw, 500px);
+}
+
+.player-head-wrap {
+  position: relative;
+  width: min(92vw, 629px);
+}
+
+.player-head-image {
+  width: 100%;
+  height: auto;
+}
+
+.transport-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.control-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+}
+
+.control-hotspot:focus-visible {
+  outline: 3px solid #f70084;
+  outline-offset: 2px;
+}
+
+/* Based on playerHead.png (629x615) actual gem centers */
+.hotspot-prev {
+  left: 12.56%;
+  top: 68.29%;
+  width: 16.53%;
+  height: 16.91%;
+}
+
+.hotspot-play {
+  left: 35.61%;
+  top: 68.29%;
+  width: 16.53%;
+  height: 16.91%;
+}
+
+.hotspot-pause {
+  left: 58.19%;
+  top: 68.29%;
+  width: 16.85%;
+  height: 17.24%;
+}
+
+.hotspot-next {
+  left: 81.08%;
+  top: 68.29%;
+  width: 15.90%;
+  height: 16.26%;
+}
+
+.player-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 16px #ed126d;
+}
+
+.lcd-display {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(78%, 480px);
+  height: 29.3%;
+  background: #222;
+  color: rgb(255, 0, 200);
+  font-family: "Digital-7", monospace, Arial, sans-serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  border-radius: 8px;
+  border: 2px solid rgb(255, 0, 200);
+  text-align: center;
+  box-shadow: 0 0 10px rgb(255, 0, 200);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 6px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.status-display {
+  font-size: 0.7em;
+  color: #0f0;
+}
+
+#audioPlayer {
+  display: none;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 32px;
+  width: 82%;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid rgb(255, 0, 200);
+  box-shadow: 0 2px 8px rgb(255, 0, 200);
+  pointer-events: auto;
+  z-index: 4;
+}
+
+button {
+  background-color: #ef0ed4;
+  border: solid;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  border-color: #f70084;
+  margin-top: 10px;
+  width: 75vw;
+  max-width: 300px;
+}
+
+#songList {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(76vw, 280px);
+  min-height: 54px;
+  padding: 10px 20px;
+  border: 3px solid #f70084;
+  border-radius: 12px;
+  background: #ef0ed4;
+  color: #fff;
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgb(255, 0, 200);
+}
+
+#songList:hover,
+#songList:focus-visible {
+  background: #f70084;
+  outline: none;
+}
+
+.medallion-image {
+  width: min(70vw, 250px);
+  cursor: pointer;
+}
+
+.medallion-image:focus-visible {
+  outline: 3px solid #f70084;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* Song list specific button styling */
+#song-list button {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.fancy-script {
+  font-family: "Great Vibes", cursive;
+  font-size: 7vh;
+  color: #dfe7ef;
+  text-shadow: 1px 1px 2px rgb(17, 16, 16), 0 0 1em rgb(24, 24, 25),
+    0 0 0.2em rgb(17, 17, 19);
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* Playlist selector styling */
+#playlist-selector {
+  background: #333;
+  color: rgb(255, 0, 200);
+  border: 1px solid rgb(255, 0, 200);
+  border-radius: 4px;
+  padding: 5px;
+  font-family: "Digital-7", monospace, Arial, sans-serif;
+  font-size: 0.72em;
+  width: 100%;
+  margin-top: 6px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+#playlist-selector option {
+  background: #333;
+  color: rgb(255, 0, 200);
+  padding: 5px;
+  text-align: center;
+}
+
+#playlist-selector:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgb(255, 0, 200);
+}
+
+/* SoundCloud container styling */
+#soundcloud-container {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.5);
+  width: min(90vw, 629px);
+  height: 16px;
+  border-radius: 8px;
+  border: 2px solid rgb(255, 0, 200);
+  box-shadow: 0 2px 8px rgb(255, 0, 200);
+  overflow: hidden;
+  transform-origin: top center;
+  z-index: 4;
+}
+
+#soundcloud-widget {
+  border-radius: 6px;
+}
+
+@media (max-width: 500px) {
+  .lcd-display {
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+  }
+}
+
+@media (orientation: landscape) {
+  .player-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    column-gap: 28px;
+    row-gap: 14px;
+  }
+
+  .joanne-image {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(22vw, 340px);
+    justify-self: center;
+  }
+
+  #songList {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(16vw, 220px);
+    justify-self: center;
+    align-self: center;
+  }
+
+  .medallion-image {
+    grid-column: 1;
+    grid-row: 3;
+    width: min(18vw, 210px);
+    justify-self: center;
+  }
+
+  .player-head-wrap {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: min(36vw, 629px);
+  }
+}
