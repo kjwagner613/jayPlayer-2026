@@ -136,7 +136,7 @@ body {
   background: #222;
   color: rgb(255, 0, 200);
   font-family: "Digital-7", monospace, Arial, sans-serif;
-  font-size: clamp(1.8rem, 2.2vw, 2rem);
+  font-size: 1.6rem;
   border-radius: 8px;
   border: 2px solid rgb(255, 0, 200);
   text-align: center;
