@@ -212,7 +212,7 @@ button {
 }
 
 .medallion-image {
-  width: min(70vw, 250px);
+  width: clamp(10vw, 65%, 75%);
   cursor: pointer;
 }
 
@@ -325,7 +325,7 @@ button {
   .medallion-image {
     grid-column: 1;
     grid-row: 3;
-    width: min(18vw, 210px);
+    width: clamp(25vw, 65%, 75%);
     justify-self: center;
   }
 
